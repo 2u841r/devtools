@@ -1,6 +1,8 @@
 # DevTools – Tauri Version
 This branch contains a Tauri-based build of DevTools.
-Compared to Electron (~170+ MB), the Tauri build is only ~1.8 MB while keeping the same features.
+Compared to Electron (~170+ MB), the Tauri build is only ~1.8 MB while keeping the same features.  
+
+[Download link](https://github.com/2u841r/devtools/releases/tag/latest) 
 
 ## 🚀 Requirements
 Before running, install these:
