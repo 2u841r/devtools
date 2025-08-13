@@ -1,104 +1,46 @@
-# DevTools Desktop
+# DevTools – Tauri Version
+This branch contains a Tauri-based build of DevTools.
+Compared to Electron (~170+ MB), the Tauri build is only ~1.8 MB while keeping the same features.
 
-Offline-first developer utilities for macOS, Windows, and Linux. No cloud dependencies, no data collection.
+🚀 Requirements
+Before running, install these:
 
-![DevTools Desktop](https://github.com/me-shaon/devtools/blob/main/assets/screenshot.png?raw=true)
+Rust (with cargo)
+Install via: https://rustup.rs
 
-## Features
+Verify:
+```bash
+rustc --version
+cargo --version
+```
 
-### Text & Code
-- **JSON Viewer** - Format, validate, and minify JSON with syntax highlighting
-- **Text Compare** - Diff viewer with line-by-line comparison
-- **Case Converter** - Transform between camelCase, snake_case, kebab-case, and more
-- **SQL Formatter** - Format SQL queries with customizable indentation
-- **Markdown Editor** - Live preview with export support
-- **Code Playground** - Multi-language editor (JS, HTML, CSS, JSON, Markdown)
-
-### Converters
-- **Base64** - Encode/decode text and files
-- **URL Encoder** - Encode/decode URLs and URI components
-- **CSV ↔ JSON** - Bidirectional conversion with custom delimiters
-- **JSON → TypeScript** - Generate TypeScript interfaces from JSON
-- **Number Base** - Convert between decimal, binary, octal, hex
-
-### Generators
-- **UUID** - Generate v1/v4 UUIDs with batch support
-- **Hash** - MD5, SHA-1, SHA-256, SHA-512
-- **QR Code** - Generate QR codes with custom size and error correction
-- **Color Palette** - Create monochromatic, analogous, complementary schemes
-- **Lorem Ipsum** - Generate placeholder text
-
-### Developer Utilities
-- **JWT Decoder** - Decode and inspect JWT tokens
-- **Regex Builder** - Interactive regex construction with live testing
-- **Cron Parser** - Build cron expressions with plain English descriptions
-- **Timestamp Converter** - Unix timestamp conversion with multiple formats
-- **Image Converter** - Convert between PNG, JPEG, WebP, BMP
-
-## Quick Start
+Tauri CLI
 
 ```bash
-# Clone and install
-git clone https://github.com/yourusername/devtools-desktop.git
-cd devtools-desktop
-npm install
-
-# Run locally
-npm start
-
-# Build for distribution
-npm run dist
+cargo install tauri-cli
 ```
-
-## Requirements
-
-- Node.js 14+
-- npm or yarn
-
-## Architecture
-
-```
-src/
-├── main.js              # Electron main process
-└── renderer/
-    ├── index.html       # Single-page application
-    ├── styles/          # CSS modules
-    └── js/
-        ├── main.js      # App router and state
-        └── tools/       # Tool implementations (21 modules)
-```
-
-Each tool is a self-contained module with no external dependencies. All processing happens client-side.
-
-## Development
-
-### Adding a Tool
-
-1. Create module in `src/renderer/js/tools/`
-2. Add HTML section in `index.html`
-3. Register in navigation sidebar
-4. Add menu item in `src/main.js`
-
-### Build Scripts
-
+▶️ Run in Development Mode
 ```bash
-npm start          # Development server
-npm run build      # Build executable
-npm run pack       # Package without distributing
-npm run dist       # Create installer
+npm run dev
 ```
+This will launch the app with live reload.
 
-## Tech Stack
+🏗 Build Release
+```bash
+npm run tauri build
+```
+The built application will be in the src-tauri/target/release/ folder.
 
-- Electron 22+ for desktop runtime
-- Vanilla JavaScript (ES6+)
-- No framework dependencies
-- No analytics or telemetry
 
-## Contributing
+💡 Notes for Newbies
+Rust handles the backend (fast, small size)
 
-Pull requests welcome. For major changes, open an issue first.
+Tauri bundles your existing frontend (React, Vue, Svelte, etc.) into a native shell
 
-## License
+No need to know deep Rust — most work stays in your JS/TS code
 
-MIT
+For more info:
+📖 https://tauri.app/
+
+
+![](https://rs2.deno.dev/2u841r/devtools)
